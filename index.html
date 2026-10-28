@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow | Gestor de tareas</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="brand">
+            <span class="brand-icon">✓</span>
+            <span>TaskFlow</span>
+        </div>
+        <p>Organiza tus tareas, alcanza tus metas.</p>
+    </header>
+
+    <main class="container">
+
+        <section class="welcome">
+            <p class="eyebrow">TU ESPACIO DE ORGANIZACIÓN</p>
+            <h1>Mis tareas</h1>
+            <p>Organiza tus actividades y lleva el control de tu progreso.</p>
+        </section>
+
+        <section class="summary" aria-label="Resumen de tareas">
+            <article class="summary-card">
+                <span>Total de tareas</span>
+                <strong id="totalTasks">0</strong>
+            </article>
+
+            <article class="summary-card">
+                <span>Pendientes</span>
+                <strong id="pendingTasks">0</strong>
+            </article>
+
+            <article class="summary-card">
+                <span>Completadas</span>
+                <strong id="completedTasks">0</strong>
+            </article>
+        </section>
+
+        <section class="panel">
+            <h2 id="formTitle">Agregar nueva tarea</h2>
+
+            <form id="taskForm">
+                <input type="hidden" id="taskId">
+
+                <div class="form-group">
+                    <label for="taskTitle">Título *</label>
+                    <input type="text" id="taskTitle" maxlength="80" placeholder="Ej. Estudiar para el examen" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="taskDescription">Descripción (opcional)</label>
+                    <textarea id="taskDescription" maxlength="250" rows="3"
+                        placeholder="Agrega detalles de la tarea"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="taskDate">Fecha límite (opcional)</label>
+                    <input type="date" id="taskDate">
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="saveButton" class="btn btn-primary">
+                        Agregar tarea
+                    </button>
+
+                    <button type="button" id="cancelButton" class="btn btn-secondary" hidden>
+                        Cancelar edición
+                    </button>
+                </div>
+
+                <p id="formMessage" class="message" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <section class="panel">
+            <div class="list-heading">
+                <div>
+                    <h2>Lista de tareas</h2>
+                    <p>Consulta y administra tus actividades.</p>
+                </div>
+            </div>
+
+            <div class="filters">
+                <div class="form-group search-group">
+                    <label for="searchInput">Buscar por título</label>
+                    <input type="search" id="searchInput" placeholder="Escribe para buscar...">
+                </div>
+
+                <div class="form-group filter-group">
+                    <label for="statusFilter">Filtrar por estado</label>
+                    <select id="statusFilter">
+                        <option value="all">Todas</option>
+                        <option value="pending">Pendientes</option>
+                        <option value="completed">Completadas</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="taskList" class="task-list">
+                <div class="empty-state">
+                    <span>📝</span>
+                    <h3>Aún no tienes tareas</h3>
+                    <p>Agrega tu primera tarea para comenzar.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>TaskFlow · Proyecto de Ingeniería de Pruebas</p>
+        </footer>
+
+    </main>
+
+</body>
+
+</html>
